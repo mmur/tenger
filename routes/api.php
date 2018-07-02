@@ -25,4 +25,14 @@ Route::group(['middleware' => 'auth:api'], function(){
 
     Route::post('get-details', 'API\PassportController@getDetails');
 
+
+    Route::prefix('news')->group(function () {
+        Route::post('/', 'NewsController@create');
+        Route::post('/{id}', 'NewController@edit');
+    });
+
 });
+
+
+Route::get('news/', 'NewsController@index');
+Route::get('news/{id}', 'NewsController@show');
