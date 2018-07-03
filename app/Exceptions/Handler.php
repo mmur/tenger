@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Auth\AuthenticationException;
@@ -49,6 +50,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($e instanceof ModelNotFoundException) {
+            return response()->json(['status' => 'failed', 'data' => null, 'message' => 'Data not found']);
+        }
         return parent::render($request, $exception);
     }
 

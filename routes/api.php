@@ -19,16 +19,25 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('login', 'API\PassportController@login');
 
-Route::post('register', 'API\PassportController@register');
+//Route::post('register', 'API\PassportController@register');
 
 Route::group(['middleware' => 'auth:api'], function(){
 
     Route::post('get-details', 'API\PassportController@getDetails');
 
-
     Route::prefix('news')->group(function () {
         Route::post('/', 'NewsController@create');
-        Route::post('/{id}', 'NewController@edit');
+        Route::post('/{id}', 'NewsController@edit');
+    });
+
+    Route::prefix('faq')->group(function () {
+        Route::post('/', 'FaqController@create');
+        Route::post('/{id}', 'FaqController@edit');
+    });
+
+    Route::prefix('product')->group(function () {
+        Route::post('/', 'ProductController@create');
+        Route::post('/{id}', 'ProductController@edit');
     });
 
 });
@@ -36,3 +45,10 @@ Route::group(['middleware' => 'auth:api'], function(){
 
 Route::get('news/', 'NewsController@index');
 Route::get('news/{id}', 'NewsController@show');
+
+
+Route::get('faq/', 'FaqController@index');
+Route::get('faq{id}', 'FaqController@show');
+
+Route::get('product/', 'FaqController@index');
+Route::get('product{id}', 'FaqController@show');
