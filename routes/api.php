@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth:api'], function(){
 
     Route::prefix('news')->group(function () {
         Route::post('/', 'NewsController@create');
-        Route::post('/{id}', 'NewsController@edit');
+        Route::put('/', 'NewsController@edit');
     });
 
     Route::prefix('faq')->group(function () {
@@ -40,6 +40,11 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::post('/{id}', 'ProductController@edit');
     });
 
+    Route::prefix('category')->group(function () {
+        Route::post('/', 'CategoryController@create');
+        Route::put('/', 'CategoryController@edit');
+    });
+
 });
 
 
@@ -47,8 +52,11 @@ Route::get('news/', 'NewsController@index');
 Route::get('news/{id}', 'NewsController@show');
 
 
-Route::get('faq/', 'FaqController@index');
+Route::get('faq', 'FaqController@index');
 Route::get('faq{id}', 'FaqController@show');
 
-Route::get('product/', 'FaqController@index');
+Route::get('product', 'FaqController@index');
 Route::get('product{id}', 'FaqController@show');
+
+Route::get('category', 'CategoryController@index');
+Route::get('category/{id}', 'CategoryController@show');
