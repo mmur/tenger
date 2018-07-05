@@ -36,6 +36,8 @@ class CategoryController extends Controller
 
         if($request->title) $category->title = $request->title;
         if($request->description) $category->description = $request->description;
+        if($request->en_title) $category->en_title = $request->en_title;
+        if($request->en_description) $category->en_description = $request->en_description;
         $category->save();
 
         return $category;
