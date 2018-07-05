@@ -20,6 +20,15 @@ class NewsController extends Controller
         return $news;
     }
 
+    public function getByTag($tags)
+    {
+        $news = [];
+        foreach($tags as $tag)
+        {
+
+        }
+    }
+
 
     public function create(Request $request)
     {

@@ -21,8 +21,8 @@ class CreatePagesTable extends Migration
             $table->boolean('hasProducts')->default(false);
             $table->boolean('hasSlider')->default(false);
             $table->boolean('hasImage')->default(false);
-            $table->boolean('hasSubMenu')->default(false);
-            $table->integer('order')->default(1);
+            //$table->boolean('hasSubMenu')->default(false);
+            $table->integer('order')->default(10);
             $table->timestamps();
         });
     }

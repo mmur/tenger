@@ -17,10 +17,7 @@ class CreateNewsTable extends Migration
             $table->increments('id');
             $table->string('title', 128);
             $table->string('description', 512);
-            //$table->string('image', 512)->nullable(true);
-            //$table->string('logo', 512)->nullable(true);
             $table->longText('body')->nullable(true);
-            $table->string('category')->nullable(true);
             $table->enum('language', ['en', 'mn'])->default('mn');
             $table->timestamps();
         });

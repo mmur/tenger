@@ -36,8 +36,8 @@ Route::group(['middleware' => 'auth:api'], function(){
     });
 
     Route::prefix('product')->group(function () {
-        Route::post('/', 'ProductController@create');
-        Route::post('/{id}', 'ProductController@edit');
+        Route::post('/', 'API\ProductController@create');
+        Route::put('/', 'API\ProductController@edit');
     });
 
     Route::prefix('category')->group(function () {
@@ -55,8 +55,9 @@ Route::get('news/{id}', 'NewsController@show');
 Route::get('faq', 'FaqController@index');
 Route::get('faq{id}', 'FaqController@show');
 
-Route::get('product', 'FaqController@index');
-Route::get('product{id}', 'FaqController@show');
+Route::get('product', 'API\ProductController@index');
+Route::get('product{id}', 'API\ProductController@show');
+Route::get('specialproducts', 'API\ProductController@getSpecials');
 
 Route::get('category', 'CategoryController@index');
 Route::get('category/{id}', 'CategoryController@show');
