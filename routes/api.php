@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::put('/', 'CategoryController@edit');
     });
 
+
 });
 
 
@@ -61,3 +62,6 @@ Route::get('specialproducts', 'API\ProductController@getSpecials');
 
 Route::get('category', 'CategoryController@index');
 Route::get('category/{id}', 'CategoryController@show');
+
+Route::post('uploadimage', 'API\ImageController@store');
+
