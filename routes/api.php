@@ -58,6 +58,7 @@ Route::get('faq{id}', 'FaqController@show');
 Route::get('product', 'API\ProductController@index');
 Route::get('product{id}', 'API\ProductController@show');
 Route::get('specialproducts', 'API\ProductController@getSpecials');
+Route::get('categoryproducts/{id}', 'API\ProductController@getByCategory');
 
 Route::get('category', 'CategoryController@index');
 Route::get('category/{id}', 'CategoryController@show');
