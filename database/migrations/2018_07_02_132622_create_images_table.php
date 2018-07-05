@@ -16,8 +16,15 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('url', 512)->nullable(false);
-            $table->string('path')->nullable(false);
+            $table->string('img_url')->nullable(false);
+            $table->string('path')->nullable(true);
+            $table->string('link_url')->nullable(true);
+            $table->string('en_link_btn_text')->nullable(true);
+            $table->string('en_link_btn_title')->nullable(true);
+            $table->string('en_link_btn_description')->nullable(true);
+            $table->string('link_btn_text')->nullable(true);
+            $table->string('link_btn_title')->nullable(true);
+            $table->string('link_btn_description')->nullable(true);
             $table->timestamps();
         });
     }

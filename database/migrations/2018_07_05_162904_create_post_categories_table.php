@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddEntitleEndescriptionToCategories extends Migration
+class CreatePostCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AddEntitleEndescriptionToCategories extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->string('en_title');
-            $table->string('en_description')->nullable(true);
+        Schema::create('post_categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->string('description');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +28,6 @@ class AddEntitleEndescriptionToCategories extends Migration
      */
     public function down()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('post_categories');
     }
 }

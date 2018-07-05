@@ -17,8 +17,10 @@ class CreateFaqsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('description')->nullable(true);
-            $table->string('category')->nullable(true);
             $table->longText('body')->nullable(false);
+            $table->string('en_title');
+            $table->string('en_description')->nullable(true);
+            $table->longText('en_body')->nullable(false);
             $table->timestamps();
         });
     }

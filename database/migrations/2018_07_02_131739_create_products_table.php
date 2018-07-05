@@ -15,14 +15,17 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title', 128);
-            $table->string('description', 512);
-            $table->string('logo', 512)->default("");
-            $table->longText('body')->nullable(true);
-            $table->string('en_title', 128);
-            $table->string('en_description', 512)->default("");
+            $table->string('title');
+            $table->string('description');
+            $table->longText('body');
+            $table->string('en_title')->nullable(true);;
+            $table->string('en_description')->nullable(true);
             $table->longText('en_body')->nullable(true);
             $table->boolean('special')->default(false);
+            $table->integer('slider_id')->default(0);
+            $table->integer('faq_id')->default(0);
+            $table->enum('en_category', ['Individual Insurance', 'Corporate Insurance'])->default('Individual Insurance');
+            $table->enum('category', ['Иргэдийн Даатгал', 'Байгууллагын Даатгал'])->default('Иргэдийн Даатгал');
             $table->timestamps();
         });
     }
