@@ -23,16 +23,9 @@ Route::post('login', 'API\PassportController@login');
 
 Route::group(['middleware' => 'auth:api'], function(){
 
-    Route::post('get-details', 'API\PassportController@getDetails');
-
-    Route::prefix('news')->group(function () {
-        Route::post('/', 'API\NewsController@create');
-        Route::put('/', 'API\NewsController@edit');
-    });
-
     Route::prefix('faq')->group(function () {
         Route::post('/', 'API\FaqController@create');
-        Route::post('/{id}', 'API\FaqController@edit');
+        Route::put('/', 'API\FaqController@edit');
     });
 
     Route::prefix('product')->group(function () {
@@ -53,8 +46,8 @@ Route::get('news/', 'API\NewsController@index');
 Route::get('news/{id}', 'API\NewsController@show');
 
 
-Route::get('faq', 'FaqController@index');
-Route::get('faq{id}', 'FaqController@show');
+Route::get('faq', 'API\FaqController@index');
+Route::get('faq{id}', 'API\FaqController@show');
 
 Route::get('product', 'API\ProductController@index');
 Route::get('product{id}', 'API\ProductController@show');

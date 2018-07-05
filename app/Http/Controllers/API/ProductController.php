@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function create(Request $request)
     {
         $product = new Product($request->all());
-        if($request->category)
+        if($request->post)
         {
             $category = Category::findOrFail($request->category);
             $product->category->associate($category);
@@ -35,7 +35,6 @@ class ProductController extends Controller
 
         if($request->title) $product->title=$request->title;
         if($request->description) $product->description=$request->description;
-        if($request->logo) $product->logo=$request->logo;
         if($request->body) $product->body=$request->body;
         if($request->en_title) $product->en_title=$request->en_title;
         if($request->en_description) $product->en_description=$request->en_description;
