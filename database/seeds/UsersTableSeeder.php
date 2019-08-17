@@ -19,10 +19,22 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('Muujigmn123'),
         ],
         [
-            'name' => 'moderator',
-            'email' => 'moderator@tengerdaatgal.mn',
+            'name' => 'tulgaa',
+            'email' => 'tulgaa@example.mn',
             'type' => 'moderator',
-            'password' => bcrypt('moderator@tenger'),
+            'password' => bcrypt('tulgaa@example'),
+        ],
+        [
+            'name' => 'lamba',
+            'email' => 'lambo@example.mn',
+            'type' => 'moderator',
+            'password' => bcrypt('lambo@example'),
+        ],
+        [
+            'name' => 'tugsuu',
+            'email' => 'tugsuu@example.mn',
+            'type' => 'moderator',
+            'password' => bcrypt('tugsuu@example'),
         ]);
     }
 }
